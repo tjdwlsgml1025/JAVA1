@@ -1,36 +1,33 @@
 package timer;
 
-	class TV{
-		String company;
-		int year;
-		int inch;
-		
-		TV(String company, int year, int inch){
-			this.company = company;
-			this.year = year;
-			this.inch = inch;
-		}
-		
-		void show() {
-			System.out.println(company+"에서만든"+year+"년형"+inch+"TV입니다");
-		}
-	}
+class TV {
+    private int size;
 
+    public TV(int size) {
+        this.size = size;
+    }
 
-
-
-public class TvChannal {
-
-	public static void main(String[] args) {
-
-		TV myTV = new TV("LG", 2017, 32);
-		myTV.show();
-	}
-
+    public int getSize() {
+        return size;
+    }
 }
 
+class ColorTV extends TV {
+    int color;
 
+    public ColorTV(int size, int color) {
+        super(size);
+        this.color = color;
+    }
 
+    public void printProperty() {
+        System.out.println(super.getSize());
+    }
+}
 
-
-//LG 에서 만든 2017년형 32인치 TV
+public class TvChannal {
+    public static void main(String[] args) {
+        ColorTV myTV = new ColorTV(32, 1024);
+        myTV.printProperty();
+    }
+}
